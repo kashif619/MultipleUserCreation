@@ -1,0 +1,19 @@
+---
+- name: crating users using loop
+  hosts: sandeep
+  become: yes
+  tasks:
+  - name: multiple users creation
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+      
+    loop:
+      - name: sandeep
+        groups: tnluser
+      - name: kashif
+        groups: tnluser
+      - name: anger
+        groups: tnluser
+         
